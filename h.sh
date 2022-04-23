@@ -3,14 +3,16 @@
 # picks random image from file list of paths, copies to clipboard and pastes
 # first make hlist by adapting
 # /bin/ls -d ~/$folder/* | sort -R > $hlist
+# if you use a shortcut, make a wrapped script (or modify this one) that uses 'xdotool keyup' for the shortcut keys 
 # requires: X11 , xclip, xdotool
 
-# mage by boogal
+# mage by bagel
+
 hlist=/home/bagel/misc/hlist
 folder=/home/bagel/Pictures/h/
 imagepath=$(head -n 1 $hlist)
 fullpath=$folder$imagepath
-notify-send "copied $fullpath"
+
 echo "copied $fullpath"
 xclip -selection clipboard -target image/png -i "$fullpath"
  
